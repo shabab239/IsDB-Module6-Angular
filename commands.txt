@@ -1,0 +1,10 @@
+
+
+
+npm install -g @angular/cli
+npm i bootstrap@5.3.3
+
+ng new
+ng new <project_name> --no-standalone
+ng serve
+ng generate component <name>

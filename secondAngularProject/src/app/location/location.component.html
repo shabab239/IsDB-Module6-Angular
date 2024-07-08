@@ -1,4 +1,9 @@
-<table class="table table-striped">
+<div class="d-flex justify-content-between align-items-center">
+    <h3 class="text-center mt-4 mb-3">Locations</h3>
+    <button type="button" class="btn btn-primary" (click)="navigateToAddLocation()">Add Location</button>
+  </div>
+
+<table class="table table-striped table-info">
     <thead>
         <tr>
             <th>ID</th>
@@ -6,6 +11,8 @@
             <th>City</th>
             <th>State</th>
             <th>Available Units</th>
+            <th>WiFi</th>
+            <th>Laundry</th>
         </tr>
     </thead>
     <tbody>
@@ -15,6 +22,8 @@
             <td>{{ location.city }}</td>
             <td>{{ location.state }}</td>
             <td>{{ location.availableUnits }}</td>
+            <td>{{ location.wifi }}</td>
+            <td>{{ location.laundry }}</td>
           </tr>
     </tbody>
 </table>

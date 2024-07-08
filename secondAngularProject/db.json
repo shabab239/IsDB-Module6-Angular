@@ -101,24 +101,24 @@
       "laundry": true
     },
     {
-      "id": "ffe6",
+      "id": "fece",
       "name": "Shabab",
       "city": "Dhaka",
       "state": "Dhaka",
-      "photo": "Dhaka",
-      "availableUnits": 324,
-      "wifi": "false",
-      "laundry": "true"
+      "photo": "AVATAR",
+      "availableUnits": 4,
+      "wifi": true,
+      "laundry": false
     },
     {
-      "id": "d520",
-      "name": "Shabab Ahmed",
+      "id": "33e6",
+      "name": "Shabab 5",
       "city": "Dhaka",
       "state": "Dhaka",
-      "photo": "Dhaka",
-      "availableUnits": 23,
-      "wifi": "true",
-      "laundry": "true"
+      "photo": "AVATAR",
+      "availableUnits": 4,
+      "wifi": false,
+      "laundry": true
     }
   ]
 }

@@ -1,4 +1,4 @@
-<form [formGroup]="formValue">
+<form [formGroup]="formGroup">
     <div class="mb-3">
         <label class="form-label">Name</label>
         <input type="text" class="form-control" formControlName="name">
@@ -20,12 +20,12 @@
         <input type="number" class="form-control" formControlName="availableUnits">
     </div>
     <div class="mb-3">
-        <label class="form-label">WiFi</label>
-        <input type="text" class="form-control" formControlName="wifi">
+        <input type="checkbox" class="form-check-input" formControlName="wifi">
+        <label class="form-label">&nbsp;&nbsp;WiFi</label>
     </div>
     <div class="mb-3">
-        <label class="form-label">Laundry</label>
-        <input type="text" class="form-control" formControlName="laundry">
+        <input type="checkbox" class="form-check-input" formControlName="laundry">
+        <label class="form-label">&nbsp;&nbsp;Laundry</label>
     </div>
     <button type="submit" class="btn btn-primary" (click)="createLocation()">Submit</button>
 </form>

@@ -28,6 +28,10 @@ export class LocationComponent implements OnInit {
     this.locations = this.locationService.getAllLocations();
   }
 
+  navigateToAddLocation() {
+    this.router.navigateByUrl('/create_location');
+  }
+
 
 
 }

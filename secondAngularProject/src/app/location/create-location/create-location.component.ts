@@ -15,28 +15,25 @@ import { error } from 'console';
 export class CreateLocationComponent implements OnInit {
 
   location: Location = new Location();
-  formValue!: FormGroup;
-  locationData: any;
+  formGroup!: FormGroup;
 
   constructor(
     private locationService: LocationService,
     private router: Router,
     private httpClient: HttpClient,
     private formBuilder: FormBuilder
-  ) {
+  ) {}
 
 
-
-  }
   ngOnInit(): void {
-    this.formValue = this.formBuilder.group({
-      name: [''],
-      city: [''],
-      state: [''],
-      photo: [''],
-      availableUnits: [''],
-      wifi: [''],
-      laundry: ['']
+    this.formGroup = this.formBuilder.group({
+      name: ['Shabab'],
+      city: ['Dhaka'],
+      state: ['Dhaka'],
+      photo: ['AVATAR'],
+      availableUnits: [4],
+      wifi: [true],
+      laundry: [false]
     })
   }
 
@@ -50,14 +47,14 @@ export class CreateLocationComponent implements OnInit {
     // this.location.wifi = this.formValue.value.wifi;
     // this.location.laundry = this.formValue.value.laundry;
 
-    this.location = { ...this.formValue.value };
+    this.location = { ...this.formGroup.value };
 
     this.locationService.createLocation(this.location)
       .subscribe({
         next: response => {
           alert(response);
           console.log(response);
-          this.formValue.reset();
+          this.formGroup.reset();
         },
         error: error => {
           console.log(error);

@@ -3,8 +3,16 @@
 
 npm install -g @angular/cli
 npm i bootstrap@5.3.3
+npm install -g json-server (create db.json at the root dir)
+json-server --watch db.json
+
+add the following in app.moudule.ts:
+    provideHttpClient(
+      withFetch()
+    )
 
 ng new
 ng new <project_name> --no-standalone
 ng serve
 ng generate component <name>
+ng generate service <name>

@@ -109,6 +109,16 @@
       "availableUnits": 324,
       "wifi": "false",
       "laundry": "true"
+    },
+    {
+      "id": "d520",
+      "name": "Shabab Ahmed",
+      "city": "Dhaka",
+      "state": "Dhaka",
+      "photo": "Dhaka",
+      "availableUnits": 23,
+      "wifi": "true",
+      "laundry": "true"
     }
   ]
 }

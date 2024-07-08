@@ -42,13 +42,15 @@ export class CreateLocationComponent implements OnInit {
 
   createLocation() {
 
-    this.location.name = this.formValue.value.name;
-    this.location.city = this.formValue.value.city;
-    this.location.state = this.formValue.value.state;
-    this.location.photo = this.formValue.value.photo;
-    this.location.availableUnits = this.formValue.value.availableUnits;
-    this.location.wifi = this.formValue.value.wifi;
-    this.location.laundry = this.formValue.value.laundry;
+    // this.location.name = this.formValue.value.name;
+    // this.location.city = this.formValue.value.city;
+    // this.location.state = this.formValue.value.state;
+    // this.location.photo = this.formValue.value.photo;
+    // this.location.availableUnits = this.formValue.value.availableUnits;
+    // this.location.wifi = this.formValue.value.wifi;
+    // this.location.laundry = this.formValue.value.laundry;
+
+    this.location = { ...this.formValue.value };
 
     this.locationService.createLocation(this.location)
       .subscribe({

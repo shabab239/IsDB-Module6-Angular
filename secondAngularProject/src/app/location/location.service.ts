@@ -32,7 +32,7 @@ export class LocationService {
     return this.httpClient.put<Location>(`${this.baseUrl}/${id}`, location);
   }
 
-  deleteLocation(id: number): Observable<void> {
+  deleteLocation(id: string): Observable<void> {
     return this.httpClient.delete<void>(`${this.baseUrl}/${id}`);
   }
 }

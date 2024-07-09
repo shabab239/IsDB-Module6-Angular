@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationService } from '../location.service';
-import { Router } from '@angular/router';
+import { Route, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '../location.model';
 import { response } from 'express';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { error } from 'console';
 
 @Component({
@@ -22,19 +22,19 @@ export class CreateLocationComponent implements OnInit {
     private router: Router,
     private httpClient: HttpClient,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
 
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
-      name: ['Shabab'],
-      city: ['Dhaka'],
-      state: ['Dhaka'],
-      photo: ['AVATAR'],
-      availableUnits: [4],
-      wifi: [true],
-      laundry: [false]
-    })
+      name: [this.location.name || '', Validators.required],
+      city: [this.location.city || '', Validators.required],
+      state: [this.location.state || '', Validators.required],
+      photo: [this.location.photo || '', Validators.required],
+      availableUnits: [this.location.availableUnits || '', [Validators.required, Validators.min(1)]],
+      wifi: [this.location.wifi || false],
+      laundry: [this.location.laundry || false]
+    });
   }
 
   createLocation() {
@@ -47,14 +47,19 @@ export class CreateLocationComponent implements OnInit {
     // this.location.wifi = this.formValue.value.wifi;
     // this.location.laundry = this.formValue.value.laundry;
 
+    if (this.formGroup.invalid) {
+      alert('Please fill out all required fields.');
+      return;
+    }
+
     this.location = { ...this.formGroup.value };
 
     this.locationService.createLocation(this.location)
       .subscribe({
         next: response => {
-          alert(response);
           console.log(response);
           this.formGroup.reset();
+          this.router.navigate(["/location"])
         },
         error: error => {
           console.log(error);

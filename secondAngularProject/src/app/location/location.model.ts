@@ -2,7 +2,7 @@
 
 export class Location {
 
-    id: string | undefined;
+    id!: string;
     name: string | undefined;
     city: string | undefined;
     state: string | undefined;

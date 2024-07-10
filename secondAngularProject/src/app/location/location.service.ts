@@ -24,11 +24,11 @@ export class LocationService {
     return this.httpClient.post<Location>(this.baseUrl, location);
   }
 
-  getLocationById(id: number): Observable<Location> {
+  getLocationById(id: string): Observable<Location> {
     return this.httpClient.get<Location>(`${this.baseUrl}/${id}`);
   }
 
-  updateLocation(id: number, location: Location): Observable<Location> {
+  updateLocation(id: string, location: Location): Observable<Location> {
     return this.httpClient.put<Location>(`${this.baseUrl}/${id}`, location);
   }
 

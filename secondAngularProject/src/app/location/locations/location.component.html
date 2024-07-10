@@ -23,11 +23,11 @@
             <td>{{ location.city }}</td>
             <td>{{ location.state }}</td>
             <td>{{ location.availableUnits }}</td>
-            <td>{{ location.wifi }}</td>
-            <td>{{ location.laundry }}</td>
+            <td [ngClass]="{'text-success': location.wifi, 'text-danger': !location.wifi}">{{ location.wifi ? "Yes" : "No" }}</td>
+            <td [ngClass]="{'text-success': location.laundry, 'text-danger': !location.laundry}">{{ location.laundry ? "Yes" : "No" }}</td>
             <td>
-                <button class="btn btn-info"> Edit </button>
-                <button class="btn btn-danger" (click)="deleteLocation(location.id)"> Delete </button>
+                <button class="btn btn-info m-1" (click)="updateLocation(location.id)"> Edit </button>
+                <button class="btn btn-danger m-1" (click)="deleteLocation(location.id)"> Delete </button>
             </td>
         </tr>
     </tbody>

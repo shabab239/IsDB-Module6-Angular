@@ -2,7 +2,7 @@
 
 export class Location {
 
-    id!: string;
+    id!: string; //using json-server temporarily
     name: string | undefined;
     city: string | undefined;
     state: string | undefined;

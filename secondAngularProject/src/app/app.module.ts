@@ -6,20 +6,23 @@ import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
 import { LocationComponent } from './location/locations/location.component';
 import { CreateLocationComponent } from './location/create-location/create-location.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { UpdateLocationComponent } from './location/update-location/update-location.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentComponent,
     LocationComponent,
-    CreateLocationComponent
+    CreateLocationComponent,
+    UpdateLocationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     provideHttpClient(

@@ -7,7 +7,7 @@
       "state": "IL",
       "photo": "https://angular.io/assets/images/tutorials/faa/bernard-hermant-CLKGGwIBTaY-unsplash.jpg",
       "availableUnits": 4,
-      "wifi": true,
+      "wifi": false,
       "laundry": true
     },
     {
@@ -27,7 +27,7 @@
       "state": "AK",
       "photo": "https://angular.io/assets/images/tutorials/faa/i-do-nothing-but-love-lAyXdl1-Wmc-unsplash.jpg",
       "availableUnits": 1,
-      "wifi": false,
+      "wifi": true,
       "laundry": false
     },
     {
@@ -81,13 +81,13 @@
       "laundry": true
     },
     {
-      "id": "8",
-      "name": "Seriously Safe Towns",
-      "city": "Oakland",
-      "state": "CA",
-      "photo": "https://angular.io/assets/images/tutorials/faa/saru-robert-9rP3mxf8qWI-unsplash.jpg",
-      "availableUnits": 10,
-      "wifi": false,
+      "id": "e4ac",
+      "name": "Acme Fresh Start Housing 10",
+      "city": "Dhaka",
+      "state": "Dhaka",
+      "photo": "Dhaka",
+      "availableUnits": 12,
+      "wifi": true,
       "laundry": false
     }
   ]

@@ -90,5 +90,25 @@
       "wifi": true,
       "laundry": false
     }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "name": "Shabab",
+      "email": "test@test.com",
+      "cell": "01700000000",
+      "location": {
+        "id": "1"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Skip Khan",
+      "email": "test@test.com",
+      "cell": "01700000000",
+      "location": {
+        "id": "2"
+      }
+    }
   ]
 }

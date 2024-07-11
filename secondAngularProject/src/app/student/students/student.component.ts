@@ -4,6 +4,7 @@ import { StudentService } from '../student.service';
 import { Observable } from 'rxjs';
 import { LocationService } from '../../location/location.service';
 import { Location } from '../../location/location.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student',
@@ -17,13 +18,14 @@ export class StudentComponent implements OnInit {
 
   constructor(
     private studentService: StudentService,
-    private locationService: LocationService
+    private locationService: LocationService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.students = this.studentService.getAllStudents();
+    
     this.locations = this.locationService.getAllLocations();
-
     this.students.subscribe(students => {
       this.locations.subscribe(locations => {
         students.forEach(student => {
@@ -38,7 +40,7 @@ export class StudentComponent implements OnInit {
 
 
   navigateToAddStudent() {
-
+    this.router.navigate(['/create_student']);
   }
 
 }

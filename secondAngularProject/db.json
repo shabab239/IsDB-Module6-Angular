@@ -69,45 +69,34 @@
       "availableUnits": 5,
       "wifi": true,
       "laundry": true
-    },
-    {
-      "id": "7",
-      "name": "Hopeful Housing Solutions",
-      "city": "Oakland",
-      "state": "CA",
-      "photo": "https://angular.io/assets/images/tutorials/faa/r-architecture-GGupkreKwxA-unsplash.jpg",
-      "availableUnits": 2,
-      "wifi": true,
-      "laundry": true
-    },
-    {
-      "id": "e4ac",
-      "name": "Acme Fresh Start Housing 10",
-      "city": "Dhaka",
-      "state": "Dhaka",
-      "photo": "Dhaka",
-      "availableUnits": 12,
-      "wifi": true,
-      "laundry": false
     }
   ],
   "students": [
     {
-      "id": 1,
-      "name": "Shabab",
+      "id": "8e61",
+      "name": "Shabab 101",
       "email": "test@test.com",
-      "cell": "01700000000",
+      "cell": "01XXXXXXXXX",
       "location": {
-        "id": "1"
+        "id": "6"
       }
     },
     {
-      "id": 2,
-      "name": "Skip Khan",
+      "id": "d293",
+      "name": "Shabab 101",
       "email": "test@test.com",
-      "cell": "01700000000",
+      "cell": "01XXXXXXXXX",
       "location": {
-        "id": "2"
+        "id": "5"
+      }
+    },
+    {
+      "id": "f3d9",
+      "name": "Shabab 102",
+      "email": "test@test.com",
+      "cell": "01XXXXXXXXX",
+      "location": {
+        "id": "0"
       }
     }
   ]

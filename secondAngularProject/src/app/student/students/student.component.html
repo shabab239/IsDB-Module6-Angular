@@ -11,6 +11,8 @@
           <th>Email</th>
           <th>Cell</th>
           <th>Location</th>
+          <th>Avail. Units</th>
+          <th>WiFi</th>
           <!-- <th></th> -->
       </tr>
   </thead>
@@ -21,6 +23,8 @@
           <td>{{ student.email }}</td>
           <td>{{ student.cell }}</td>
           <td>{{ student.location.name }}</td>
+          <td>{{ student.location.availableUnits }}</td>
+          <td>{{ student.location.wifi ? "Yes" : "No" }}</td>
           <!-- <td>{{ student.location }}</td><td>
               <button class="btn btn-info m-1" (click)="updateStudent(student.id)"> Edit </button>
               <button class="btn btn-danger m-1" (click)="deleteStudent(student.id)"> Delete </button>

@@ -56,7 +56,7 @@
       "city": "Oakland",
       "state": "CA",
       "photo": "https://angular.io/assets/images/tutorials/faa/r-architecture-JvQ0Q5IkeMM-unsplash.jpg",
-      "availableUnits": 2,
+      "availableUnits": 7,
       "wifi": true,
       "laundry": true
     },
@@ -77,52 +77,34 @@
       "location": {
         "id": "2"
       },
+      "name": "Shabab",
+      "email": "test@test.com",
+      "cell": "01XXXXXXXXX"
+    },
+    {
+      "id": "43be",
+      "location": {
+        "id": "0"
+      },
       "name": "Shabab 2",
       "email": "test@test.com",
       "cell": "01XXXXXXXXX"
     },
     {
-      "id": "1980",
+      "id": "5d7f",
       "location": {
-        "id": "6"
+        "id": "0"
       },
       "name": "Shabab 3",
       "email": "test@test.com",
       "cell": "01XXXXXXXXX"
     },
     {
-      "id": "134f",
+      "id": "66f2",
       "location": {
-        "id": "6"
+        "id": "5"
       },
-      "name": "Shabab 3",
-      "email": "test@test.com",
-      "cell": "01XXXXXXXXX"
-    },
-    {
-      "id": "ac8e",
-      "location": {
-        "id": "6"
-      },
-      "name": "Shabab 34",
-      "email": "test@test.com",
-      "cell": "01XXXXXXXXX"
-    },
-    {
-      "id": "1431",
-      "location": {
-        "id": "6"
-      },
-      "name": "Shabab 35",
-      "email": "test@test.com",
-      "cell": "01XXXXXXXXX"
-    },
-    {
-      "id": "5c84",
-      "location": {
-        "id": "6"
-      },
-      "name": "Shabab 40",
+      "name": "Shabab 4",
       "email": "test@test.com",
       "cell": "01XXXXXXXXX"
     }

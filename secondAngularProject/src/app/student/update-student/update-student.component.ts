@@ -13,7 +13,7 @@ import { Location } from '../../location/location.model';
 })
 export class UpdateStudentComponent {
 
-  id!: number;
+  id!: string;
   student: Student = new Student();
   locations!: Observable<Location[]>;
 

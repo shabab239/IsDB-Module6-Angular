@@ -44,11 +44,11 @@ export class StudentComponent implements OnInit {
     });
   }
 
-  updateStudent(id: number) {
+  updateStudent(id: string) {
     this.router.navigate(["/update_student", id]);
   }
 
-  deleteStudent(id: number) {
+  deleteStudent(id: string) {
     this.studentService.deleteStudent(id)
       .subscribe({
         next: response => {

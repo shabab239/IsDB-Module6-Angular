@@ -2,7 +2,7 @@ import { Location } from "../location/location.model"
 
 
 export class Student {
-    id!: number
+    id!: string
     name!: string
     email!: string
     cell!: string

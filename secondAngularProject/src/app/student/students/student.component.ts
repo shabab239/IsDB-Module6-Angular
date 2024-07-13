@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../student.model';
 import { StudentService } from '../student.service';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable, of } from 'rxjs';
 import { LocationService } from '../../location/location.service';
 import { Location } from '../../location/location.model';
 import { Router } from '@angular/router';
@@ -23,21 +23,44 @@ export class StudentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.students = this.studentService.getAllStudents();
-    
-    this.locations = this.locationService.getAllLocations();
-    this.students.subscribe(students => {
-      this.locations.subscribe(locations => {
-        students.forEach(student => {
-          let matchingLocation = locations.find(loc => loc.id === student.location.id);
-          if (matchingLocation) {
-            student.location = matchingLocation;
-          }
-        });
+
+    this.loadStudents();
+
+  }
+
+  loadStudents() {
+    forkJoin({
+      students: this.studentService.getAllStudents(),
+      locations: this.locationService.getAllLocations()
+    }).subscribe(({ students, locations }) => {
+      students.forEach(student => {
+        let matchingLocation = locations.find(loc => loc.id === student.location.id);
+        if (matchingLocation) {
+          student.location = matchingLocation;
+        }
       });
+      this.students = of(students);
+      this.locations = of(locations);
     });
   }
 
+  updateStudent(id: number) {
+    this.router.navigate(["/update_student", id]);
+  }
+
+  deleteStudent(id: number) {
+    this.studentService.deleteStudent(id)
+      .subscribe({
+        next: response => {
+          this.loadStudents();
+        },
+        error: error => {
+          console.log(error);
+          alert("Error printed on console");
+        },
+
+      })
+  }
 
   navigateToAddStudent() {
     this.router.navigate(['/create_student']);

@@ -1,1 +1,30 @@
-<p>update-student works!</p>
+<div class="d-flex justify-content-center align-items-center">
+    <h3 class="text-center mt-4 mb-3">New Student</h3>
+</div>
+
+<form (ngSubmit)="updateStudent()">
+    <div class="row">
+        <div class="offset-3 col-md-6">
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" name="name" [(ngModel)]="student.name">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" [(ngModel)]="student.email">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Cell</label>
+                <input type="text" class="form-control" name="cell" [(ngModel)]="student.cell">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Select Location</label>
+                <select class="form-control" name="location" [(ngModel)]="student.location.id">
+                    <option *ngFor="let location of locations | async" [value]="location.id">{{ location.name }}</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+
+    </div>
+</form>

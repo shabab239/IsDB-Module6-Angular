@@ -13,7 +13,7 @@
           <th>Location</th>
           <th>Avail. Units</th>
           <th>WiFi</th>
-          <!-- <th></th> -->
+          <th></th>
       </tr>
   </thead>
   <tbody>
@@ -25,10 +25,10 @@
           <td>{{ student.location.name }}</td>
           <td>{{ student.location.availableUnits }}</td>
           <td>{{ student.location.wifi ? "Yes" : "No" }}</td>
-          <!-- <td>{{ student.location }}</td><td>
+          <td>
               <button class="btn btn-info m-1" (click)="updateStudent(student.id)"> Edit </button>
               <button class="btn btn-danger m-1" (click)="deleteStudent(student.id)"> Delete </button>
-          </td> -->
+          </td>
       </tr>
   </tbody>
 </table>

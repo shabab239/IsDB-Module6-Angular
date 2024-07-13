@@ -31,7 +31,6 @@ export class CreateStudentComponent implements OnInit {
   }
 
   createStudent() {
-
     this.studentService.createStudent(this.student)
       .subscribe({
         next: response => {

@@ -16,17 +16,20 @@ export class StudentService {
     return this.httpClient.get<Student[]>(`${this.baseUrl}`);
   }
 
-  // createStudent(student: Student): Observable<Student> {
-  //   return this.httpClient.post<Student>(this.baseUrl, student);
-  // }
-
-  createStudent(student: Student): Observable<any> {
-    const body = {
-      name: student.name,
-      email: student.email,
-      cell: student.cell,
-      location: { id: student.location.id }
-    };
-    return this.httpClient.post<Student>(this.baseUrl, body);
+  createStudent(student: Student): Observable<Student> {
+    return this.httpClient.post<Student>(this.baseUrl, student);
   }
+
+  getStudentById(id: number): Observable<Student> {
+    return this.httpClient.get<Student>(`${this.baseUrl}/${id}`);
+  }
+
+  updateStudent(id: number, student: Student): Observable<Student> {
+    return this.httpClient.put<Student>(`${this.baseUrl}/${id}`, student);
+  }
+
+  deleteStudent(id: number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.baseUrl}/${id}`);
+  }
+
 }

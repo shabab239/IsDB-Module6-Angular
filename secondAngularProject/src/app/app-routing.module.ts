@@ -7,16 +7,18 @@ import { UpdateLocationComponent } from './location/update-location/update-locat
 import { CreateStudentComponent } from './student/create-student/create-student.component';
 import { ViewStudentComponent } from './student/view-student/view-student.component';
 import { UpdateStudentComponent } from './student/update-student/update-student.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  {path: "location", component: LocationComponent},
-  {path: "create_location", component: CreateLocationComponent},
-  {path: "update_location/:id", component: UpdateLocationComponent},
-
-  {path: "student", component: StudentComponent},
-  {path: "create_student", component: CreateStudentComponent},
-  {path: "view_student/:id", component: ViewStudentComponent},
-  {path: "update_student/:id", component: UpdateStudentComponent},
+  {path: "login", component: LoginComponent},
+  {path: "location", component: LocationComponent, canActivate: [AuthGuard]},
+  {path: "create_location", component: CreateLocationComponent, canActivate: [AuthGuard]},
+  {path: "update_location/:id", component: UpdateLocationComponent, canActivate: [AuthGuard]},
+  {path: "student", component: StudentComponent, canActivate: [AuthGuard]},
+  {path: "create_student", component: CreateStudentComponent, canActivate: [AuthGuard]},
+  {path: "view_student/:id", component: ViewStudentComponent, canActivate: [AuthGuard]},
+  {path: "update_student/:id", component: UpdateStudentComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

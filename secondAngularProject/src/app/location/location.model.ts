@@ -2,13 +2,13 @@
 
 export class Location {
 
-    id!: string; //using json-server temporarily
-    name: string | undefined;
-    city: string | undefined;
-    state: string | undefined;
-    photo: string | undefined;
-    availableUnits: number | undefined;
-    wifi: boolean | undefined;
-    laundry: boolean | undefined;
+    id!: string;
+    name!: string;
+    city!: string;
+    state!: string;
+    photo!: string;
+    availableUnits!: number;
+    wifi!: boolean;
+    laundry!: boolean;
 
 }

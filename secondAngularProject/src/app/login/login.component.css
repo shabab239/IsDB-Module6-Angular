@@ -1,0 +1,22 @@
+.container {
+    perspective: 1000px;
+  }
+  
+  .form-container {
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .form-container.rotate {
+    transform: rotateY(180deg);
+  }
+  
+  form {
+    backface-visibility: hidden;
+    padding: 20px;
+  }
+  
+  form *ngIf="isRegisterMode" {
+    transform: rotateY(180deg);
+  }
+  

@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-container" [ngClass]="{'rotate': isRegisterMode}">
+              <form *ngIf="!isRegisterMode" (ngSubmit)="login()">
+                <h2 class="text-center">Login</h2>
+                <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+                <div class="form-group">
+                  <label for="loginEmail">Email</label>
+                  <input type="email" id="loginEmail" class="form-control" [(ngModel)]="user.email" name="email" required>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="loginPassword">Password</label>
+                  <input type="password" id="loginPassword" class="form-control" [(ngModel)]="user.password" name="password" required>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <p class="text-center mt-2">Don't have an account? <a href="#" (click)="toggleMode()">Register</a></p>
+              </form>
+  
+              <form *ngIf="isRegisterMode" (ngSubmit)="register()">
+                <h2 class="text-center">Register</h2>
+                <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" class="form-control" [(ngModel)]="user.name" name="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="registerEmail">Email</label>
+                  <input type="email" id="registerEmail" class="form-control" [(ngModel)]="user.email" name="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="registerPassword">Password</label>
+                  <input type="password" id="registerPassword" class="form-control" [(ngModel)]="user.password" name="password" required>
+                </div>
+                <div class="form-group">
+                  <label for="cell">Mobile No.</label>
+                  <input type="text" id="cell" class="form-control" [(ngModel)]="user.cell" name="cell" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+                <p class="text-center mt-2">Already have an account? <a href="#" (click)="toggleMode()">Login</a></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

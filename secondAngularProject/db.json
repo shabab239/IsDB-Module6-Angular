@@ -6,26 +6,6 @@
       "email": "test@test.com",
       "password": "123",
       "cell": "01XXXXXXXXX"
-    },
-    {
-      "id": "65d8",
-      "email": "test@test.com",
-      "password": "sdasad"
-    },
-    {
-      "id": "822e",
-      "email": "test@test.com",
-      "password": "sdasad"
-    },
-    {
-      "id": "dcae",
-      "email": "test@test.com",
-      "password": "123"
-    },
-    {
-      "id": "7c19",
-      "email": "test@test.com",
-      "password": "123"
     }
   ],
   "locations": [
@@ -104,7 +84,7 @@
     {
       "id": "7ba3",
       "location": {
-        "id": "2"
+        "id": "3"
       },
       "name": "Shabab",
       "email": "test@test.com",

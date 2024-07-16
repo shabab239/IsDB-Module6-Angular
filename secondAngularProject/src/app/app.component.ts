@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './auth/auth.service';
+import { User } from './auth/model/user.model';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { AuthService } from './auth/auth.service';
 export class AppComponent {
   title = 'secondAngularProject';
   isAuthenticated: boolean = false;
+  currentUser: User | null = new User();
 
   constructor(
     private authService: AuthService,
@@ -18,6 +20,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.updateAuthStatus();
+    this.currentUser = this.authService.getCurrentUser();
   }
 
   updateAuthStatus() {

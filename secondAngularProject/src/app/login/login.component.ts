@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../auth/model/user.model';
 import { AuthService } from '../auth/auth.service';
@@ -9,7 +9,7 @@ import { AppComponent } from '../app.component';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   isRegisterMode = false;
   user: User = new User();
@@ -20,6 +20,11 @@ export class LoginComponent {
     private appComponent: AppComponent,
     private router: Router
   ) { }
+
+  ngOnInit(): void {
+    this.appComponent.isAuthenticated = false;
+    this.authService.logout();
+  }
 
   toggleMode() {
     this.isRegisterMode = !this.isRegisterMode;

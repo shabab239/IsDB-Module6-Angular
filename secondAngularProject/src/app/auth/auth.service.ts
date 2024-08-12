@@ -24,7 +24,7 @@ export class AuthService {
     params = params.append('email', user.email);
     params = params.append('password', user.password);
 
-    return this.httpClient.get<User[]>(`${this.baseUrl}`, {params}).pipe( // Using Get req temporarily as there is no backend
+    return this.httpClient.get<User[]>(`${this.baseUrl}`, { params }).pipe( // Using Get req temporarily as there is no backend
       map(users => {
         const foundUser = users.find(u => u.password === user.password);
         if (foundUser) {
@@ -55,11 +55,30 @@ export class AuthService {
   }
 
   getAuthToken(): string | null {
-    return localStorage.getItem('authToken');
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('authToken');
+    }
+    return null;
   }
 
   getCurrentUser(): User | null {
-    const userJson = localStorage.getItem('currentUser');
-    return userJson ? JSON.parse(userJson) : null;
+    if (typeof window !== 'undefined') {
+      const userJson = localStorage.getItem('currentUser');
+      return userJson ? JSON.parse(userJson) : null;
+    }
+    return null;
   }
+
+
+  getCurrentRole(): string | null {
+    if (typeof window !== 'undefined') {
+      const userJson = localStorage.getItem('currentUser');
+      if (userJson) {
+        let user: User = JSON.parse(userJson);
+        return user.role;
+      }
+    }
+    return null;
+  }
+
 }

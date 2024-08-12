@@ -5,7 +5,16 @@
       "name": "Shabab Ahmed",
       "email": "test@test.com",
       "password": "123",
-      "cell": "01XXXXXXXXX"
+      "cell": "01XXXXXXXXX",
+      "role": "Admin"
+    },
+    {
+      "id": "2",
+      "name": "Samin Ahmed",
+      "email": "samin@test.com",
+      "password": "123",
+      "cell": "01XXXXXXXXX",
+      "role": "Staff"
     }
   ],
   "locations": [

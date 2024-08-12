@@ -9,18 +9,19 @@ import { ViewStudentComponent } from './student/view-student/view-student.compon
 import { UpdateStudentComponent } from './student/update-student/update-student.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth/auth.guard';
+import { RoleGuard } from './auth/role.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full' },
-  //{path: '**', redirectTo: '/login', pathMatch: 'full' },
   {path: "login", component: LoginComponent},
-  {path: "location", component: LocationComponent, canActivate: [AuthGuard]},
+  {path: "location", component: LocationComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'Admin' }},
   {path: "create_location", component: CreateLocationComponent, canActivate: [AuthGuard]},
   {path: "update_location/:id", component: UpdateLocationComponent, canActivate: [AuthGuard]},
   {path: "student", component: StudentComponent, canActivate: [AuthGuard]},
   {path: "create_student", component: CreateStudentComponent, canActivate: [AuthGuard]},
   {path: "view_student/:id", component: ViewStudentComponent, canActivate: [AuthGuard]},
   {path: "update_student/:id", component: UpdateStudentComponent, canActivate: [AuthGuard]},
+  {path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({

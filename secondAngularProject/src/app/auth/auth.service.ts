@@ -1,8 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { User } from './model/user.model';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Token } from './model/token.model';
+import { Util } from '../util/util';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,14 @@ export class AuthService {
 
   private baseUrl: string = "http://localhost:3000/users"
 
+  private currentUserSubject = new BehaviorSubject<User | null>(null); //NEW CHANGE - DECLARE CURRENT USER SUBJECT
+  public currentUser = this.currentUserSubject.asObservable(); //NEW CHANGE - SET THE SUBJECT AS OBSERVABLE
+
   constructor(
     private httpClient: HttpClient
-  ) { }
+  ) {
+    this.currentUserSubject.next(this.getCurrentUser()); //NEW CHANGE - INIT CURRENT USER SUBJECT WITH SESSION USER
+  }
 
   register(user: User): Observable<User> {
     return this.httpClient.post<User>(this.baseUrl, user);
@@ -30,55 +36,45 @@ export class AuthService {
         if (foundUser) {
           const authToken = btoa(`${user.email}:${user.password}`); // simple base64 encoding for token
           const token: Token = { authToken, user: foundUser };
-          localStorage.setItem('authToken', token.authToken);
-          localStorage.setItem('currentUser', JSON.stringify(token.user));
+
+          Util.saveToLocalStorage('authToken', token.authToken);
+          Util.saveToLocalStorage('currentUser', token.user);
+
+          this.currentUserSubject.next(foundUser); //NEW CHANGE - SET THE USER TO THE SUBJECT IF FOUND
+
           return token;
         } else {
+          this.currentUserSubject.next(null); //NEW CHANGE - SET NULL TO THE SUBJECT IF USER NOT FOUND
+
           return null;
         }
       })
     );
   }
 
-  logout(): void {
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem('authToken');
-      localStorage.removeItem('currentUser');
-    }
+  getRole(): string | null {
+    const user = this.getCurrentUser();
+    return user?.role || null;
   }
 
   isLoggedIn(): boolean {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('authToken') !== null;
-    }
-    return false;
+    return Util.getFromLocalStorage('authToken') !== null;
   }
 
-  getAuthToken(): string | null {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('authToken');
-    }
-    return null;
+  logout(): void {
+    Util.removeFromLocalStorage('authToken');
+    Util.removeFromLocalStorage('currentUser');
+
+    this.currentUserSubject.next(null); //NEW CHANGE - SET NULL TO THE SUBJECT AFTER LOGOUT
   }
 
   getCurrentUser(): User | null {
-    if (typeof window !== 'undefined') {
-      const userJson = localStorage.getItem('currentUser');
-      return userJson ? JSON.parse(userJson) : null;
-    }
-    return null;
+    const user = Util.getFromLocalStorage('currentUser');
+    return user ? user : null;
   }
 
-
-  getCurrentRole(): string | null {
-    if (typeof window !== 'undefined') {
-      const userJson = localStorage.getItem('currentUser');
-      if (userJson) {
-        let user: User = JSON.parse(userJson);
-        return user.role;
-      }
-    }
-    return null;
+  getAuthToken(): string | null {
+    return Util.getFromLocalStorage('authToken');
   }
 
 }

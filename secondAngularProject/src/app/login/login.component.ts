@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.appComponent.isAuthenticated = false;
     this.authService.logout();
   }
 
@@ -35,7 +34,6 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.user).subscribe({
       next: token => {
         if (token) {
-          this.appComponent.updateAuthStatus();
           this.router.navigate(['/student']);
         } else {
           this.errorMessage = 'Invalid email or password';
